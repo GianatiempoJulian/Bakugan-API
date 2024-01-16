@@ -42,6 +42,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/attributes',[AttributeController::class, 'store']); //Store one attribute
     Route::put('/attributes/{attribute}',[AttributeController::class, 'update']); //Update one attribute
     Route::delete('/attributes/{attribute}',[AttributeController::class, 'destroy']); //Delete one attribute
+  
 
      //*====  BAKUGAN <-> SERIE ROUTES  ====*//
     Route::post('/bakugans/series',[BakuganController::class, 'attachSerie']); //Attach one bakugan to a one serie
@@ -79,10 +80,9 @@ Route::get('/attributes/{attribute}',[AttributeController::class, 'show']); //Re
 //*==================================== BAKUGAN <-> SERIE ROUTES ====================================*//
 
 //* Serie Side *//
-Route::post('/serie/bakugans',[SerieController::class, 'bakugans']); //Fetch all the bakugans of this serie
+Route::post('/series/{serie}/bakugans',[SerieController::class, 'bakugans']); //Fetch all the bakugans of this serie
 
 //*==================================== BAKUGAN <-> ATTRIBUTES ROUTES ====================================*//
-
 
 //* Attribute Side *//
 Route::post('/attributes/{attribute}/bakugans',[AttributeController::class, 'bakugans']); //Fetch all the bakugans of this attribute
